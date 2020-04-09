@@ -1,0 +1,18 @@
+Introduction
+From a mathematical point of view, cellular automata (CA) are binary lattices that are updated iteratively. In the automata discussed in this paper, the value of a cell is flipped based only on the number of ones in the neighborhood of the cell to be updated. We call an automaton synchronous if all cells are updated simultaneously, respectively asynchronous if the updating affects only one cell at a time.
+We further call an automaton deterministic [5], [6], [17] if the update follows deterministic rules, respectively probabilistic [1]-[4], [7], [8], [11], [12] if at least one of the following holds:
+• the updated cell is picked at random
+• the local transition rule is probabilistic - e.g., a cell may flip from zero to one with some probability , and the same cell may stay in zero with probability .
+Probabilistic automata are suitable for Markov chain modelling, since the future configuration of the automaton depends only on its present state.
+A finite homogeneous Markov chain is a stochastic process that moves according to some probabilities within a finite set of states, say , with transition probability from state  to state  (denoted ) depending only on states  and . The square, non-negative transition matrix  gathers all the above transition probabilities. Transition matrix of a Markov chain is always stochastic - that is, the sum of probabilities in each row is one, and since in our case the matrix does not change from an iteration to another, it is called homogeneous.
+A brief introduction to homogeneous Markov chains is given in the following. For more detail, reader is referred to monographs [10], [13], [14].
+Definition 0.1. • A state  is absorbing if . An absorbing state is never left, once it is entered.
+• A stochastic matrix  is primitive if there is a positive integer  such that  is (strictly) positive.
+• A stochastic matrix is called stable if all its rows are identical.
+• Let  be a probability vector. If  is the initial distribution of the Markov chain with transition matrix , then the distribution after  steps is , with , for all . If , then  is a stationary distribution.
+Theorem 0.2. Let  be a primitive transition matrix. Then  converges as  to a positive stable stochastic matrix , and the rate of approach to the limit is geometric. Moreover, the limit distribution  has the following properties:
+• is unique regardless of the initial distribution ;
+• has positive entries on all components;
+• is also the unique stationary distribution of the associated Markov chain.
+There are many problems of interest in Markov chain theory [13]. The short-term behavior implies the correct definition of the transition matrix to be associated to some process. The long term-behavior is even more important, opening the way for prediction; that is strictly connected to the stationary distribution, and to finding necessary and sufficient conditions that guarantee its existence. Providing the stationary distribution in elegant, analytical form would be a bonus - fortunately, this is the case in our study. Finally, estimating the time the chain takes until convergence is also of interest - this topic is usually referred to in literature as absorption time.
+When it comes to CA, literature has focused so far only on the first two topics. The computation of absorption time is also of certain interest, at least for the class of deterministic automata with two attractors, all zeros and all ones.
